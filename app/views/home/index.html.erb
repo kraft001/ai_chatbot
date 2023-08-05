@@ -1,2 +1,19 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+
+<table>
+  <tr>
+    <td data-controller="chats">
+      <h1>My Chat Rooms</h1>
+
+      <button data-action="chats#create">Create a new Chat Room</button>
+
+      <div data-chats-target="list"></div>
+    </td>
+    <td data-controller="messages" data-messages-chat-id-value="">
+      <h1>Chat Room <%= @chat&.id %></h1>
+      <div data-messages-target="list"></div>
+      <textarea data-messages-target="text"></textarea>
+      <button data-action="messages#create">Send Message<button>
+    </td>
+  </tr>
+</table>
