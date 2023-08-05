@@ -14,5 +14,7 @@ class MessagesController < ApplicationController
     @message = chat.messages.create(text: params[:text], from_user: true)
 
     ActionCable.server.broadcast('chat_channel', @message)
+
+    ChatGptJob.perform_later(@message)
   end
 end
