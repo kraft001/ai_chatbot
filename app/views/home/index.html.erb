@@ -2,18 +2,20 @@
 
 <table>
   <tr>
-    <td data-controller="chats">
+    <td data-controller="chats" data-chats-messages-outlet=".messages">
       <h1>My Chat Rooms</h1>
 
       <button data-action="chats#create">Create a new Chat Room</button>
 
       <div data-chats-target="list"></div>
     </td>
-    <td data-controller="messages" data-messages-chat-id-value="">
-      <h1>Chat Room <%= @chat&.id %></h1>
-      <div data-messages-target="list"></div>
-      <textarea data-messages-target="text"></textarea>
-      <button data-action="messages#create">Send Message<button>
+    <td data-controller="messages" data-messages-chat-id-value="" class="messages">
+      <h1 data-messages-target="title"></h1>
+      <div data-messages-target="chatBox">
+        <div data-messages-target="list"></div>
+        <textarea data-messages-target="text"></textarea>
+        <button data-action="messages#create">Send Message<button>
+      </div>
     </td>
   </tr>
 </table>

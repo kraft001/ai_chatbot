@@ -1,0 +1,8 @@
+.hidden {
+  display: none;
+}
+
+.from-user {
+  background-color: #ccc;
+  text-align: right;
+}

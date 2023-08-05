@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ "list" ];
+  static outlets = [ "messages" ];
 
   initialize() {
     this.token = document.querySelector('meta[name="csrf-token"]').content;
@@ -48,6 +49,6 @@ export default class extends Controller {
   };
 
   load({ params: { chatId } }) {
-    console.log(chatId);
+    this.messagesOutlet.chatIdValue = chatId;
   }
 }
