@@ -45,8 +45,8 @@ class ChatGptService
   end
 
   def messages
-    chat.messages.where(from_user: true).order(created_at: :desc).limit(10).reverse.map do |message|
-      { role: 'user', content: message.text }
+    chat.messages.order(created_at: :desc).limit(10).reverse.map do |message|
+      { role: (message.from_user? ? 'user' : 'system'), content: message.text }
     end
   end
 
